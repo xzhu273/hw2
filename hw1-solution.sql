@@ -86,7 +86,7 @@ INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 1, "Bruce Wayn
 INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 2, "Alfred");
 INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 3, "Ra's Al Ghul");
 INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 4, "Rachel Dawes");
-INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 5, "Commissioner Gordon");
+INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 5, "ommissioner GordoCn");
 
 -- The Dark Knight
 INSERT INTO actors (name) VALUES ("Heath Ledger"); -- 6

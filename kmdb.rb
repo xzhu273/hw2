@@ -76,10 +76,10 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
-studios.destroy_all
-movie.destroy_all
-actor.destroy_all
-role.destroy_all
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
@@ -91,82 +91,164 @@ role.destroy_all
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
-studio_new = studio.new
+studio_new = Studio.new
 studio_new ["name"] = "Warner Bros."
 studio_new.save
 
-movie_new = movie.new
+movie_new = Movie.new
 movie_new ["title"] = "Batman Begins"
 movie_new ["year_released"] = 2005
 movie_new ["rated"] = "PG-13"
-movie_new ["studio_id"] = 1
+movie_new ["studio_id"] = studio_new["id"]
 movie_new.save
 
-movie_new2 ["title", "year_released", "rated", "studio_id"] = "Batman Begins", 2005, "PG-13", 1
+
+movie_new2 = Movie.new
+movie_new2 ["title"] = "The Dark Knight"
+movie_new2 ["year_released"] = 2008
+movie_new2 ["rated"] = "PG-13"
+movie_new2 ["studio_id"] = studio_new["id"]
 movie_new2.save
 
-movie_new3 = movie.new
-movie_new3 ["title"] = "The Dark Knight"
-movie_new3 ["year_released"] = 2008
+movie_new3 = Movie.new
+movie_new3 ["title"] = "The Dark Knight Rises"
+movie_new3 ["year_released"] = 2012
 movie_new3 ["rated"] = "PG-13"
-movie_new3 ["studio_id"] = 1
+movie_new3 ["studio_id"] = studio_new["id"]
 movie_new3.save
 
-movie_new4 = movie.new
-movie_new4 ["title"] = "The Dark Knight Rises"
-movie_new4 ["year_released"] = 2012
-movie_new4 ["rated"] = "PG-13"
-movie_new4 ["studio_id"] = 1
-movie_new4.save
-
-actor_new = actor.new
+actor_new = Actor.new
 actor_new ["name"] = "Christian Bale"
 actor_new.save
 
-actor_new2 = actor.new
+actor_new2 = Actor.new
 actor_new2 ["name"] = "Michael Caine"
 actor_new2.save
 
-actor_new3 = actor.new
+actor_new3 = Actor.new
 actor_new3 ["name"] = "Liam Neeson"
 actor_new3.save
 
-actor_new4 = actor.new
+actor_new4 = Actor.new
 actor_new4 ["name"] = "Katie Holmes"
 actor_new4.save
 
-actor_new5 = actor.new
+actor_new5 = Actor.new
 actor_new5 ["name"] = "Gary Oldman"
 actor_new5.save
 
-actor_new6 = actor.new
+actor_new6 = Actor.new
 actor_new6 ["name"] = "Heath Ledger"
 actor_new6.save
 
-actor_new7 = actor.new
+actor_new7 = Actor.new
 actor_new7 ["name"] = "Aaron Eckhart"
 actor_new7.save
 
-actor_new8 = actor.new
+actor_new8 = Actor.new
 actor_new8 ["name"] = "Maggie Gyllenhaal"
 actor_new8.save
 
-actor_new9 = actor.new
+actor_new9 = Actor.new
 actor_new9 ["name"] = "Tom Hardy"
 actor_new9.save
 
-actor_new10 = actor.new
+actor_new10 = Actor.new
 actor_new10 ["name"] = "Joseph Gordon-Levitt"
 actor_new10.save
 
-actor_new11 = actor.new
+actor_new11 = Actor.new
 actor_new11 ["name"] = "Anne Hathaway"
 actor_new11.save
 
-role_new = role.new
-role_new ["movie_id"] = 1
-role_new ["actor_id"] =1
-role_new ["chracter_name"] = "Bruce Wayne"
+bruce_wayne_1 = Role.new
+bruce_wayne_1 ["movie_id"] = movie_new ["id"]
+bruce_wayne_1 ["actor_id"] = actor_new ["id"]
+bruce_wayne_1 ["character_name"] = "Bruce Wayne"
+bruce_wayne_1.save
+
+alfred_1 = Role.new
+alfred_1 ["movie_id"] = movie_new ["id"]
+alfred_1 ["actor_id"] = actor_new2 ["id"]
+alfred_1 ["character_name"] = "Alfred"
+alfred_1.save
+
+rag=Role.new
+rag ["movie_id"] = movie_new ["id"]
+rag ["actor_id"] = actor_new3 ["id"]
+rag ["character_name"] = "Ra's Al Ghul"
+rag.save
+
+rachel_dawes = Role.new
+rachel_dawes ["movie_id"] = movie_new ["id"]
+rachel_dawes ["actor_id"] = actor_new4 ["id"]
+rachel_dawes ["character_name"] = "Rachel Dawes"
+rachel_dawes.save
+
+commissioner_gordo = Role.new
+commissioner_gordo ["movie_id"] = movie_new ["id"]
+commissioner_gordo ["actor_id"] = actor_new5 ["id"]
+commissioner_gordo ["character_name"] = "Commissioner Gordo"
+commissioner_gordo.save
+
+bruce_wayne_2 = Role.new
+bruce_wayne_2 ["movie_id"] = movie_new2 ["id"]
+bruce_wayne_2 ["actor_id"] = actor_new ["id"]
+bruce_wayne_2 ["character_name"] = "Bruce Wayne"
+bruce_wayne_2.save
+
+joker = Role.new
+joker ["movie_id"] = movie_new2 ["id"]
+joker ["actor_id"] = actor_new6 ["id"]
+joker ["character_name"] = "Joker"
+joker.save
+
+harvey_dent= Role.new
+harvey_dent ["movie_id"] = movie_new2 ["id"]
+harvey_dent ["actor_id"] = actor_new7 ["id"]
+harvey_dent ["character_name"] = "Harvey Dent"
+harvey_dent.save
+
+alfred_2 = Role.new
+alfred_2 ["movie_id"] = movie_new2 ["id"]
+alfred_2 ["actor_id"] = actor_new2 ["id"]
+alfred_2 ["character_name"] = "Alfred"
+alfred_2.save
+
+rachel_dawes_2 = Role.new
+rachel_dawes_2 ["movie_id"] = movie_new2 ["id"]
+rachel_dawes_2 ["actor_id"] = actor_new8 ["id"]
+rachel_dawes_2 ["character_name"] = "Rachel Dawes"
+rachel_dawes_2.save
+
+bruce_wayne_3 = Role.new
+bruce_wayne_3 ["movie_id"] = movie_new3 ["id"]
+bruce_wayne_3 ["actor_id"] = actor_new ["id"]
+bruce_wayne_3 ["character_name"] = "Bruce Wayne"
+bruce_wayne_3.save
+
+commissioner_gordo_2 = Role.new
+commissioner_gordo_2 ["movie_id"] = movie_new3 ["id"]
+commissioner_gordo_2 ["actor_id"] = actor_new5 ["id"]
+commissioner_gordo_2 ["character_name"] = "Commissioner Gordo"
+commissioner_gordo_2.save
+
+bane = Role.new
+bane ["movie_id"] = movie_new3 ["id"]
+bane ["actor_id"] = actor_new9 ["id"]
+bane ["character_name"] = "Bane"
+bane.save
+
+john_blake = Role.new
+john_blake ["movie_id"] = movie_new3 ["id"]
+john_blake ["actor_id"] = actor_new10 ["id"]
+john_blake ["character_name"] = "John Blake"
+john_blake.save
+
+sk = Role.new
+sk ["movie_id"] = movie_new3 ["id"]
+sk ["actor_id"] = actor_new11 ["id"]
+sk ["character_name"] = "Selina Kyle"
 
 
 # Prints a header for the movies output
@@ -176,14 +258,14 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
-studio_name = movie.where({"studio_id"=>studio["id"]})
-for movie in studio_name
+movie_all = Movie.all
+for movie in movie_all
     title = movie["title"]
     year_released = movie ["year_released"]
-    rated = move ["rated"]
+    rated = movie ["rated"]
     studio_name = movie ["studio_id"]
-
-    puts "#{title} #{year_released} #{rated} #{studio_name}"
+    warner = Studio.find_by ({"id" => studio_name})
+    puts "#{title} #{year_released} #{rated} #{warner["name"]}"
 end 
 
 # Prints a header for the cast output
@@ -194,3 +276,14 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+role_all = Role.all
+for role in role_all
+    movie_name = role ["movie_id"] 
+    movie = Movie.find_by ({"id" => movie_name})
+    actor_name = role ["actor_id"] 
+    actor = Actor.find_by ({"id" => actor_name})
+    character_name = role ["chracter_name"]
+
+
+    puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]} "
+end
